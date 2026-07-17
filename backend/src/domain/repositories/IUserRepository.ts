@@ -1,0 +1,10 @@
+import { promises } from 'node:dns';
+import { User } from '../entities/User';
+
+export interface IUserRepository{
+    findByEmail(email: string): Promise < User |null >;
+    findById(id: string): Promise<User | null>;
+    create(user: User): Promise<User>;
+    updateRefreshToken(userId: string, token: string): Promise<void>;
+    updateVerification(userId: string): Promise<void>
+} 
